@@ -1,6 +1,6 @@
-# vue
+# Vue.js Sandbox
 
-> A Vue.js project
+> A Vue.js tutorial project
 
 ## Build Setup
 

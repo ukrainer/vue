@@ -6,20 +6,10 @@ import App from './App'
 
 Vue.config.productionTip = false
 
-export const eventBus = new Vue({
-  methods: {
-    updateQuote(index) {},
-    editQuote(index) {},
-    deleteQuote(index) {},
-    addQuote(newQuote) {
-      this.$emit('quoteAdded', newQuote)
-    }
-  }
-});
+
 
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
-  template: '<App/>',
-  components: { App }
+  render: h => h(App)
 })

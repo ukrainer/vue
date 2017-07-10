@@ -4,20 +4,20 @@
       <div class="row">
         <div class="col-sm-12">
           <h1 class="text-center">Quotes</h1>
+          <p class="text-center" style="color: gray">(click to edit)</p>
           <app-progress :maxQuotes="maxQuotes" :quotesLength="quotes.length"></app-progress>
 
-          <div class="alert alert-danger" v-if="overload">
-            The max count of quotes {{ maxQuotes }}! Please delete some quotes before add new.
-          </div>
           <app-quote-add
             :editMode="editMode"
             :editedIndex="editedIndex"></app-quote-add>
 
           <app-quotes :quotes="quotes"></app-quotes>
 
-          <div class="alert alert-info">
-            <p>Click to edit</p>
-          </div>
+          <transition name="fade">
+            <div class="alert alert-danger" v-show="overload">
+              The max count of quotes {{ maxQuotes }}! Please delete some quotes before add new.
+            </div>
+          </transition>
         </div>
       </div>
     </div>
@@ -97,5 +97,21 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #2c3e50;
+}
+
+.fade-enter {
+  opacity: 0;
+  transform:translateY(-20px);
+}
+.fade-enter-active {
+  transition: 1s ease;
+}
+.fade-leave {
+
+}
+.fade-leave-active {
+  transition: 1s ease;
+  opacity: 0;
+  transform:translateY(-20px);
 }
 </style>

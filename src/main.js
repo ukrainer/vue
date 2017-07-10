@@ -6,7 +6,9 @@ import App from './App'
 
 Vue.config.productionTip = false
 
-
+Vue.filter('to-lower', function(value) {
+  return value.toLowerCase();
+})
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
